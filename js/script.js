@@ -19,4 +19,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     }
 
+    // Mostra i numeri in pagina
+    randomNumbers.forEach(num => {
+    const li = document.createElement('li');
+    li.textContent = num;
+    li.classList.add('fs-1');
+    numbersListEl.appendChild(li);
+
     });
