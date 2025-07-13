@@ -39,3 +39,25 @@ document.addEventListener("DOMContentLoaded", function() {
     answersForm.classList.remove('d-none');
     }
     }, 1000);
+
+    // Gestione invio form
+    answersForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const inputs = inputGroup.querySelectorAll('input');
+    const userNumbers = [];
+
+    inputs.forEach(input => {
+    const val = parseInt(input.value);
+    if (!isNaN(val)) {
+    userNumbers.push(val);
+    }
+    });
+
+    // Controllo numeri indovinati
+   const guessedNumbers = userNumbers.filter(num => randomNumbers.includes(num));
+   const uniqueGuessed = [...new Set(guessedNumbers)];
+
+   messageEl.classList.remove('text-danger');
+   messageEl.classList.add('text-success');
+   messageEl.innerHTML = `Hai indovinato ${uniqueGuessed.length} numero/i.<br> Numeri indovinati {uniqueGuessed.length > 0 ? uniqueGuessed.join(', ') : 'Nessuno'}`;
