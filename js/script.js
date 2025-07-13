@@ -25,5 +25,17 @@ document.addEventListener("DOMContentLoaded", function() {
     li.textContent = num;
     li.classList.add('fs-1');
     numbersListEl.appendChild(li);
-
     });
+
+    // Conto alla rovescia
+    countdownEl.textContent = timeLeft;
+    const timer = setInterval(() => {
+    timeLeft--;
+    countdownEl.textContent = timeLeft;
+
+    if (timeLeft === totalTime - hideNumbersTime) {
+    numbersListEl.classList.add('d-none');
+    instructionsEl.textContent = "Inserisci i numeri che ricordi:";
+    answersForm.classList.remove('d-none');
+    }
+    }, 1000);
