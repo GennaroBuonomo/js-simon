@@ -11,4 +11,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const hideNumbersTime = 10;
     let timeLeft = totalTime;
 
+    // Genera 5 numeri casuali unici da 1 a 30
+    while (randomNumbers.length < 5) {
+    let num = Math.floor(Math.random() * 30) + 1;
+    if (!randomNumbers.includes(num)) {
+    randomNumbers.push(num);
+    }
+    }
+
     });
